@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <h1>Result</h1>
+    {% if recognized_faces %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Distance</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for face in recognized_faces %}
+                    <tr>
+                        <td>{{ face.name }}</td>
+                        <td>{{ face.distance }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No faces were recognized in the image.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Go Back</a>
+</body>
+</html>
